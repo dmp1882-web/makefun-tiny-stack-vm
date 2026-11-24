@@ -96,8 +96,8 @@ function run(program: Uint8Array, input: Uint8Array): { stdout: Uint8Array; exit
         else if (op === 0x20) r = a === b ? 1 : 0;
         else if (op === 0x21) r = a < b ? 1 : 0;
         else r = (a >>> 0) < (b >>> 0) ? 1 : 0;
-        sp -= 2;
-        D[sp++] = r;
+        D[sp - 2] = r;
+        sp--;
         break;
       }
       case 0x30: case 0x31: case 0x32: {
